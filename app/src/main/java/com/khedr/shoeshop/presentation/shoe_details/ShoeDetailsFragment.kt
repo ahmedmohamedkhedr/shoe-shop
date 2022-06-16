@@ -26,6 +26,7 @@ class ShoeDetailsFragment : Fragment() {
     ): View {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_details, container, false)
+        binding.viewModel = viewModel
         return binding.root
     }
 
@@ -38,12 +39,7 @@ class ShoeDetailsFragment : Fragment() {
             navigateTo(ShoeDetailsFragmentDirections.actionShoeDetailsFragmentToLoginFragment())
         }
         binding.addBtn.setOnClickListener {
-            viewModel.addNewShoe(
-                binding.nameEt.text.toString(),
-                binding.companyEt.text.toString(),
-                binding.sizeEt.text.toString(),
-                binding.descEt.text.toString()
-            )
+            viewModel.addNewShoe()
             navigateUp()
         }
     }

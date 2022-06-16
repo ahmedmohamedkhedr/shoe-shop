@@ -27,6 +27,12 @@ class MainViewModel @Inject constructor(private val interactor: Interactor) : Vi
     val newShoeLiveData = MutableLiveData<MutableList<ShoeModel>>()
     private val shoesList = mutableListOf<ShoeModel>()
 
+     val shoeNameLiveData = MutableLiveData<String>()
+     val shoeCompanyLiveData = MutableLiveData<String>()
+     val shoeSizeLiveData = MutableLiveData<String>()
+     val shoeDescLiveData = MutableLiveData<String>()
+
+
     fun login(email: String, password: String) {
         interactor.setCurrentUserUseCase(UserModel(email = email, password = password))
         loginSuccessLiveData.postValue(true)
@@ -46,8 +52,15 @@ class MainViewModel @Inject constructor(private val interactor: Interactor) : Vi
 
     fun isPasswordValid(password: String) = interactor.validatePasswordUseCase(password)
 
-    fun addNewShoe(name: String, company: String, size: String, desc: String) {
-        shoesList.add(ShoeModel(name, company, size, desc))
+    fun addNewShoe() {
+        shoesList.add(
+            ShoeModel(
+                shoeNameLiveData.value,
+                shoeCompanyLiveData.value,
+                shoeSizeLiveData.value,
+                shoeDescLiveData.value
+            )
+        )
         newShoeLiveData.postValue(shoesList)
     }
 }

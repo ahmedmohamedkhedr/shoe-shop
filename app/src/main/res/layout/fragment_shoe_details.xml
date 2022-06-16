@@ -6,6 +6,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.khedr.shoeshop.presentation.MainViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,7 +34,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:inputType="text" />
+            android:inputType="text"
+            android:text="@={viewModel.shoeNameLiveData}"/>
 
         <TextView
             android:id="@+id/textView2"
@@ -46,7 +53,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:inputType="text" />
+            android:inputType="text"
+            android:text="@={viewModel.shoeCompanyLiveData}"/>
 
         <TextView
             android:id="@+id/textView5"
@@ -65,7 +73,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:inputType="text"
-            tools:ignore="TextFields" />
+            tools:ignore="TextFields"
+            android:text="@={viewModel.shoeSizeLiveData}"/>
 
         <TextView
             android:id="@+id/textView6"
@@ -84,7 +93,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:inputType="text"
-            tools:ignore="TextFields" />
+            tools:ignore="TextFields"
+            android:text="@={viewModel.shoeDescLiveData}"/>
 
         <Button
             android:id="@+id/addBtn"
@@ -95,7 +105,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:text="@string/add"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false" />
 
     </LinearLayout>
 
