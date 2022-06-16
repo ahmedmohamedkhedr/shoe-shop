@@ -26,7 +26,6 @@ class InstructionsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        showBackButton()
         binding.finishBtn.setOnClickListener {
             navigateTo(InstructionsFragmentDirections.actionInstructionsFragmentToShoeListingFragment())
         }

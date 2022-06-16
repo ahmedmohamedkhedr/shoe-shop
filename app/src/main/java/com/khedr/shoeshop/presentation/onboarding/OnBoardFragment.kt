@@ -28,7 +28,6 @@ class OnBoardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        showBackButton()
         binding.nextBtn.setOnClickListener {
             navigateTo(OnBoardFragmentDirections.actionOnBoardFragmentToInstructionsFragment())
         }
